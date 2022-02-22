@@ -5,5 +5,5 @@ Jetpack Compose 학습용 repository
 https://developer.android.com/courses/pathways/compose
 
 # Steps
-[1] Jetpack Compose Basics
+[1] Jetpack Compose Basics  
 [2] Layouts in Jetpack Compose
