@@ -29,28 +29,25 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.constraintlayout.compose.ConstraintLayout
-import androidx.constraintlayout.compose.Dimension
-import coil.compose.rememberImagePainter
 import com.sukminkang.compose.ui.theme.ComposeTheme
 import kotlinx.coroutines.launch
 import kotlin.math.exp
 
 class MainActivity : ComponentActivity() {
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContent {
-            ComposeTheme {
-                MyApp()
-            }
-        }
-    }
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContent {
+//            ComposeTheme {
+//                MyApp()
+//            }
+//        }
+//    }
 }
 
-@Composable
-private fun MyApp() {
-    ConstraintLayoutContent()
-}
+//@Composable
+//private fun MyApp() {
+//    ConstraintLayoutContent()
+//}
 
 @Composable
 fun Greetings(names: List<String> = List(1000) { "$it" }) {
@@ -216,134 +213,134 @@ fun LazyList() {
     }
 }
 
-@Composable
-fun ImageList() {
-    val scrollState = rememberLazyListState()
+//@Composable
+//fun ImageList() {
+//    val scrollState = rememberLazyListState()
+//
+//    LazyColumn(state = scrollState) {
+//        items(100) {
+//            ImageListItem(it)
+//        }
+//    }
+//}
 
-    LazyColumn(state = scrollState) {
-        items(100) {
-            ImageListItem(it)
-        }
-    }
-}
-
-@Composable
-fun ImageListItem(index:Int) {
-    Row(verticalAlignment = Alignment.CenterVertically) {
-        Image(
-            painter = rememberImagePainter(data =
-            "https://developer.android.com/images/brand/Android_Robot.png"
-            ),
-            contentDescription = "Android Logo",
-            modifier = Modifier.size(50.dp)
-        )
-        Spacer(modifier = Modifier.width(10.dp))
-        Text("Item #$index", style = MaterialTheme.typography.subtitle1)
-    }
-}
-
-@Composable
-fun ScrollingList() {
-    val listSize = 100
-    val scrollState = rememberLazyListState()
-    val coroutineScope = rememberCoroutineScope()
-
-    Column {
-        Row {
-            Button(onClick = {
-                coroutineScope.launch {
-                    // 0 is the first item index
-                    scrollState.animateScrollToItem(0)
-                }
-            }) {
-                Text("Scroll to the top")
-            }
-
-            Button(onClick = {
-                coroutineScope.launch {
-                    // listSize - 1 is the last index of the list
-                    scrollState.animateScrollToItem(listSize - 1)
-                }
-            }) {
-                Text("Scroll to the end")
-            }
-        }
-
-        LazyColumn(state = scrollState) {
-            items(listSize) {
-                ImageListItem(it)
-            }
-        }
-    }
-}
-
-@Composable
-fun ConstraintLayoutContent() {
-    ConstraintLayout {
-
-        val (button, text) = createRefs()
-
-        Button(
-            onClick = {  },
-            modifier = Modifier.constrainAs(button) {
-                top.linkTo(parent.top, margin = 16.dp)
-            }
-        ) {
-            Text("Button")
-        }
-
-        Text("Text", Modifier.constrainAs(text) {
-            top.linkTo(button.bottom, margin = 16.dp)
-        })
-    }
-}
-
-
-@Composable
-fun LargeConstraintLayout() {
-    ConstraintLayout {
-        val text = createRef()
-
-        val guideline = createGuidelineFromStart(fraction = 0.5f)
-        Text(
-            "This is a very very very very very very very long text",
-            Modifier.constrainAs(text) {
-                linkTo(start = guideline, end = parent.end)
-                width = Dimension.preferredWrapContent
-            }
-        )
-    }
-}
-
-@Composable
-fun TwoTexts(modifier: Modifier = Modifier, text1: String, text2: String) {
-    Row(modifier = modifier.height(IntrinsicSize.Min)) {
-        Text(
-            modifier = Modifier
-                .weight(1f)
-                .padding(start = 4.dp)
-                .wrapContentWidth(Alignment.Start),
-            text = text1
-        )
-        Divider(color = Color.Black, modifier = Modifier.fillMaxHeight().width(1.dp))
-        Text(
-            modifier = Modifier
-                .weight(1f)
-                .padding(end = 4.dp)
-                .wrapContentWidth(Alignment.End),
-
-            text = text2
-        )
-    }
-}
-
-
-@Preview()
-@Composable
-fun DefaultPreview() {
-    ComposeTheme {
-        Surface {
-            TwoTexts(text1 = "Hi", text2 = "there")
-        }
-    }
-}
+//@Composable
+//fun ImageListItem(index:Int) {
+//    Row(verticalAlignment = Alignment.CenterVertically) {
+//        Image(
+//            painter = rememberImagePainter(data =
+//            "https://developer.android.com/images/brand/Android_Robot.png"
+//            ),
+//            contentDescription = "Android Logo",
+//            modifier = Modifier.size(50.dp)
+//        )
+//        Spacer(modifier = Modifier.width(10.dp))
+//        Text("Item #$index", style = MaterialTheme.typography.subtitle1)
+//    }
+//}
+//
+//@Composable
+//fun ScrollingList() {
+//    val listSize = 100
+//    val scrollState = rememberLazyListState()
+//    val coroutineScope = rememberCoroutineScope()
+//
+//    Column {
+//        Row {
+//            Button(onClick = {
+//                coroutineScope.launch {
+//                    // 0 is the first item index
+//                    scrollState.animateScrollToItem(0)
+//                }
+//            }) {
+//                Text("Scroll to the top")
+//            }
+//
+//            Button(onClick = {
+//                coroutineScope.launch {
+//                    // listSize - 1 is the last index of the list
+//                    scrollState.animateScrollToItem(listSize - 1)
+//                }
+//            }) {
+//                Text("Scroll to the end")
+//            }
+//        }
+//
+//        LazyColumn(state = scrollState) {
+//            items(listSize) {
+//                ImageListItem(it)
+//            }
+//        }
+//    }
+//}
+//
+//@Composable
+//fun ConstraintLayoutContent() {
+//    ConstraintLayout {
+//
+//        val (button, text) = createRefs()
+//
+//        Button(
+//            onClick = {  },
+//            modifier = Modifier.constrainAs(button) {
+//                top.linkTo(parent.top, margin = 16.dp)
+//            }
+//        ) {
+//            Text("Button")
+//        }
+//
+//        Text("Text", Modifier.constrainAs(text) {
+//            top.linkTo(button.bottom, margin = 16.dp)
+//        })
+//    }
+//}
+//
+//
+//@Composable
+//fun LargeConstraintLayout() {
+//    ConstraintLayout {
+//        val text = createRef()
+//
+//        val guideline = createGuidelineFromStart(fraction = 0.5f)
+//        Text(
+//            "This is a very very very very very very very long text",
+//            Modifier.constrainAs(text) {
+//                linkTo(start = guideline, end = parent.end)
+//                width = Dimension.preferredWrapContent
+//            }
+//        )
+//    }
+//}
+//
+//@Composable
+//fun TwoTexts(modifier: Modifier = Modifier, text1: String, text2: String) {
+//    Row(modifier = modifier.height(IntrinsicSize.Min)) {
+//        Text(
+//            modifier = Modifier
+//                .weight(1f)
+//                .padding(start = 4.dp)
+//                .wrapContentWidth(Alignment.Start),
+//            text = text1
+//        )
+//        Divider(color = Color.Black, modifier = Modifier.fillMaxHeight().width(1.dp))
+//        Text(
+//            modifier = Modifier
+//                .weight(1f)
+//                .padding(end = 4.dp)
+//                .wrapContentWidth(Alignment.End),
+//
+//            text = text2
+//        )
+//    }
+//}
+//
+//
+//@Preview()
+//@Composable
+//fun DefaultPreview() {
+//    ComposeTheme {
+//        Surface {
+//            TwoTexts(text1 = "Hi", text2 = "there")
+//        }
+//    }
+//}
