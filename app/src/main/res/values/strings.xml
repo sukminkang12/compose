@@ -46,4 +46,13 @@
     <string name="edit_message">Edit feature is not supported</string>
     <string name="refresh">Refresh</string>
 
+    //rally
+    <string name="total">Total</string>
+    <string name="due">Due</string>
+    <string name="account_redacted">• • • • • </string>
+    <string name="accounts">Accounts</string>
+    <string name="bills">Bills</string>
+    <string name="sort">Sort</string>
+    <string name="see_all">SEE ALL</string>
+
 </resources>
