@@ -9,4 +9,5 @@ https://developer.android.com/courses/pathways/compose
 [2] Layouts in Jetpack Compose  
 [3] Using state in Jetpack Compose  
 [4] Jetpack Compose theming  
-[5] Jetpack Compose Animation
+[5] Jetpack Compose Animation  
+[6] Jetpack Compose Navigation
